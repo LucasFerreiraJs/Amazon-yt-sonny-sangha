@@ -6,15 +6,42 @@ import Currency from 'react-currency-formatter'
 
 import PrimeTag from '../public/assets/Prime-tag-.png'
 
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, selectItems } from '../src/slices/basketSlice'
+
 interface IProductProps {
   product: productType
 }
 
 export function ProductCard({ product }: IProductProps) {
-  const { id, title, price, description, category, image, rating } = product
+  const dispatch = useDispatch()
+  const selectbasket = useSelector(selectItems);
+
+  const { id, title, price, description, category, image, rating } = product;
 
   const [ratingCount] = useState(Math.ceil(rating.rate))
   const [hasPrime] = useState(Math.random() < 0.5)
+
+  const addItemToBasket = (evt:any) => {
+
+    console.log('any', evt)
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+      hasPrime
+    }
+
+    dispatch(addToBasket(product))
+    console.log('item add ', product.title)
+    console.log('basket', selectbasket)
+
+  }
 
   return (
     <>
@@ -37,7 +64,7 @@ export function ProductCard({ product }: IProductProps) {
             Array(ratingCount)
               .fill(ratingCount)
               .map((_, i) => (
-                <StarIcon className="h-5 text-yellow-500" />
+                <StarIcon key={i} className="h-5 text-yellow-500" />
               ))
           }
         </div>
@@ -50,11 +77,13 @@ export function ProductCard({ product }: IProductProps) {
 
         {hasPrime && (
           <div className="flex items-center space-x-2 -mt-5">
-            <img  className="w-12" src={PrimeTag.src} alt="" />
+            <img className="w-12" src={PrimeTag.src} alt="" />
             <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
           </div>
         )}
-        <button className="mt-auto button">Add to Basket</button>
+        <button
+          onClick={(evt)=> addItemToBasket(evt)}
+          className="mt-auto button">Add to Basket</button>
       </div>
     </>
 

@@ -2,24 +2,17 @@ import { Banner } from "./Banner";
 import { ProductFeed } from "./ProductFeed";
 
 
-import { productType } from "../types/types";
-interface Iproducts{
-  productList: Array<productType>
-
-}
-
-
-export function ContentHome({productList}:Iproducts ) {
+// export function ContentHome({productList}:Iproducts ) {
+export function ContentHome() {
 
   return (
-    <main className="max-w-screen-2xl mx-auto">
 
+    <main className="max-w-screen-2xl mx-auto">
       {/* BANNER */}
-        <Banner/>
+      <Banner />
 
       {/* PRODUCT FEED */}
-      <ProductFeed productList={productList}/>
-
+      <ProductFeed />
     </main>
   )
 }

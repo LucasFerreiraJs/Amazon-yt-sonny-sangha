@@ -1,12 +1,21 @@
 
+import { ContextType } from "react";
+import { useSelector } from "react-redux";
+import { selectProductInitialItems } from "../src/slices/InitialProducts";
 import { productType } from "../types/types";
 import { ProductCard } from "./ProductCard";
-interface Iproducts {
-  productList: Array<productType>
 
+
+interface Iproducts {
+  productList: productType[]
 }
 
-export function ProductFeed({ productList }: Iproducts) {
+// export function ProductFeed({ productList }: Iproducts) {
+export function ProductFeed() {
+
+  const productList:Array<productType> = useSelector(selectProductInitialItems)[0]
+
+  console.log('productList?????', productList[0])
   return (
     <div
       className="
@@ -17,7 +26,7 @@ export function ProductFeed({ productList }: Iproducts) {
         "
     >
       {
-        productList.slice(0, 4).map(product => {
+        productList?.slice(0, 4).map(product => {
           return (
             <ProductCard key={product.image} product={product} />
           )
@@ -31,7 +40,7 @@ export function ProductFeed({ productList }: Iproducts) {
           md:col-span-2
         ">
         {
-          productList.slice(4, 5).map(product => {
+          productList?.slice(4, 5).map(product => {
             return (
               <ProductCard key={product.image} product={product} />
             )
@@ -40,7 +49,7 @@ export function ProductFeed({ productList }: Iproducts) {
       </div>
 
       {
-        productList.slice(5, productList.length - 1 ).map(product => {
+        productList?.slice(5, productList.length - 1 ).map(product => {
           return (
             <ProductCard key={product.image} product={product} />
           )

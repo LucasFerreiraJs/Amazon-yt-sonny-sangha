@@ -10,4 +10,5 @@ export type productType = {
     rate: number
     count: number
   }
+  hasPrime?: boolean
 }
