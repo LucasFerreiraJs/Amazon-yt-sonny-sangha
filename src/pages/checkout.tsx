@@ -1,12 +1,17 @@
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { CheckoutProduct } from "../../components/CheckoutProduct";
-import { selectItems } from "../slices/basketSlice";
+import { selectItems, selectTotal } from "../slices/basketSlice";
+import Currency from 'react-currency-formatter';
+import { useSession } from "next-auth/client";
 
 export default function Checkout() {
 
   const basketItems = useSelector(selectItems);
+  const [session] = useSession();
+  const total = useSelector(selectTotal);
 
+  console.log('session chekout', session)
   return (
     <div className="bg-gray-100">
       <main
@@ -26,25 +31,48 @@ export default function Checkout() {
             <h1 className="text-3xl border-b pb-4">
               {
                 basketItems.length == 0
-                ? `Your Shopping Basket`
-                : `Shopping Basket`
+                  ? `Your Shopping Basket`
+                  : `Shopping Basket`
               }
-              </h1>
+            </h1>
 
 
-              {basketItems.map((item:any, i:number) =>{
-                return(
-                    <CheckoutProduct product={item}key={i}/>
-
-                  )
-              })}
+            {basketItems.map((item: any, i: number) => {
+              return (
+                <CheckoutProduct product={item} key={i} />
+              )
+            })}
           </div>
         </div>
 
 
         {/* right */}
 
-        <div></div>
+        <div className="flex flex-col bg-white p-10 shadow-md">
+          {basketItems.length > 0 && (
+            <>
+
+              <h2 className="whitespace-nowrap font-bold">Subtotal ({basketItems.length} items):{" "}
+                <span className="font-bold">
+                  <Currency quantity={total} currency="GBP"/>
+                </span>
+              </h2>
+
+              <button
+                disabled={!session}
+                className={`button mt-2
+                  ${!session && 'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'}
+                `}
+              >
+                {!session
+                  ? 'Sign in to checkout'
+                  : "Proceed to checkout"
+                }
+              </button>
+            </>
+
+          )}
+        </div>
       </main>
 
     </div>

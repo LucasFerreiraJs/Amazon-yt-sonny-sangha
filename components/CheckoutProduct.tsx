@@ -8,11 +8,29 @@ interface IProductProps {
 }
 
 import PrimeTag from '../public/assets/Prime-tag-.png'
+import { useDispatch } from "react-redux";
+import { addToBasket, removeFromBasket } from "../src/slices/basketSlice";
 
 export function CheckoutProduct({ product }: IProductProps) {
 
   const { id, title, price, description, category, image, rating, hasPrime } = product
   const [ratingCount] = useState(Math.ceil(rating.rate))
+
+  const dispatch = useDispatch();
+
+  const addItemToBasket = () => {
+    const productToAdd = {
+      id, title, price, description, category, image, rating, hasPrime
+    }
+
+    // push item to basket
+    dispatch(addToBasket({productToAdd}))
+  }
+
+  const removeItemFromBasket = () => {
+
+    dispatch(removeFromBasket({id}))
+  }
 
   return (
     <div className="grid grid-cols-5">
@@ -49,8 +67,8 @@ export function CheckoutProduct({ product }: IProductProps) {
 
       {/* right */}
       <div className="flex flex-col space-y-2 my-auto justify-end">
-        <button className="button my-auto">Add to Basket</button>
-        <button className="button my-auto">Remove from Basket</button>
+        <button onClick={addItemToBasket} className="button my-auto">Add to Basket</button>
+        <button onClick= {removeItemFromBasket}className="button my-auto">Remove from Basket</button>
       </div>
     </div>
   )
