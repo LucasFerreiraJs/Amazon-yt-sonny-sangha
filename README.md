@@ -1,27 +1,35 @@
-<!-- # Next.js + Tailwind CSS Example
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<div align="center">
+  <img alt="Amazonclone" title="Amazonclone" width="1000px"  src="./public/assets/page-home.png" style="margin: 0 auto"/>
 
-## Deploy your own
+</div>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Sobre o Projeto
+Aplicação realizada seguindo tutorial [AMAZON REACT.JS Challenge](https://www.youtube.com/watch?v=oq0B7XUNbtk). Uma ótima playlist para quem quer explorar funcionalidades do [NextJs](https://nextjs.org/) e [tailwindcss](https://tailwindcss.com/). A aplicação consiste em uma página home com uma lista de produtos fornecidos pela [fakestoreapi](https://fakestoreapi.com/) e uma página de carrinho com os itens que foram adicionados atrávez de estado global [Redux Toolkit](https://redux-toolkit.js.org//). O Checkout foi construido com o ambiente teste do [Strapi](https://stripe.com/br) e as informações de usuário e id de pagamento armazenadas com [Firebase](https://firebase.google.com/).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
 
-## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### 🛠 Tecnologias
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- <a href="https://reactnative.dev/" > NextJs</a>
+- <a href="https://tailwindcss.com/"> Tailwindcss </a>
+- <a href="https://redux-toolkit.js.org//"> Redux Toolkit </a>
+- <a href="https://next-auth.js.org/" > NextAUTH</a>
+- <a href="https://heroicons.com/" > HeroIcons</a>
+- <a href="https://stripe.com/br" > Stripe</a>
+- <a href="https://firebase.google.com/" > Firebase</a>
+
+### 🎲 Rodando o projeto
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+# Instale as dependências
+$ yarn install
+# ou
+$ npm install
+
+# Execute a aplicação
+$ yarn dev
+# ou
+$ npm run dev
 ```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)). -->
-
-
-
-<h1 style="margin-top: 30px; margin-bottom: 60px; text-align: center; font-weight: bold;">Projeto em desenvolvimento 🚀</h1>
