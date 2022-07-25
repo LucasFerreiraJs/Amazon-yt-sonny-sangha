@@ -5,7 +5,7 @@
 </div>
 
 ## Sobre o Projeto
-Aplicação realizada seguindo tutorial [AMAZON REACT.JS Challenge](https://www.youtube.com/watch?v=oq0B7XUNbtk). Uma ótima playlist para quem quer explorar funcionalidades do [NextJs](https://nextjs.org/) e [tailwindcss](https://tailwindcss.com/). A aplicação consiste em uma página home com uma lista de produtos fornecidos pela [fakestoreapi](https://fakestoreapi.com/) e uma página de carrinho com os itens que foram adicionados atrávez de estado global [Redux Toolkit](https://redux-toolkit.js.org//). O Checkout foi construido com o ambiente teste do [Strapi](https://stripe.com/br) e as informações de usuário e id de pagamento armazenadas com [Firebase](https://firebase.google.com/).
+Aplicação realizada seguindo tutorial [AMAZON REACT.JS Challenge](https://www.youtube.com/watch?v=oq0B7XUNbtk). Uma ótima playlist para quem quer explorar funcionalidades do [NextJs](https://nextjs.org/) e [tailwindcss](https://tailwindcss.com/). A aplicação consiste em uma página home com uma lista de produtos fornecidos pela [fakestoreapi](https://fakestoreapi.com/) e uma página de carrinho com os itens que foram adicionados atrávez de estado global [Redux Toolkit](https://redux-toolkit.js.org//). O Checkout foi construído com o ambiente teste do [Strapi](https://stripe.com/br) e as informações de usuário e id de pagamento armazenadas com [Firebase](https://firebase.google.com/).
 
 
 
