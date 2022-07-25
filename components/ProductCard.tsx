@@ -25,7 +25,7 @@ export function ProductCard({ product }: IProductProps) {
 
   const addItemToBasket = (evt:any) => {
 
-    console.log('any', evt)
+
     const product = {
       id,
       title,
@@ -38,8 +38,7 @@ export function ProductCard({ product }: IProductProps) {
     }
 
     dispatch(addToBasket(product))
-    console.log('item add ', product.title)
-    console.log('basket', selectbasket)
+
 
   }
 

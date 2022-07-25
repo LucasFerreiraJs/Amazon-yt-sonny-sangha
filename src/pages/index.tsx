@@ -1,4 +1,5 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next";
+import { getSession } from "next-auth/client";
 import Head from "next/head";
 import Image from "next/image";
 import { ContextType, useEffect, useState } from "react";
@@ -23,7 +24,7 @@ export default function Home({ productList }: Iproducts) {
   const setInitialProduct = () => {
     dispatch(addToProductInitial(productList))
   }
-  console.log('productList.length', productList.length)
+
   productList.length && setInitialProduct()
 
   return (
@@ -43,12 +44,15 @@ export default function Home({ productList }: Iproducts) {
   );
 };
 
-export async function getServerSideProps(context: ContextType<any>) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+
+  const session = await getSession(context);
   const products: Iproducts = await fetch('https://fakestoreapi.com/products').then((res) => res.json())
 
   return {
     props: {
-      productList: products
+      productList: products,
+      session
     }
   }
 }

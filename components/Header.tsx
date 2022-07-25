@@ -17,7 +17,7 @@ export function Header() {
 
   const [session] = useSession()
 
-  console.log('session', session)
+
 
   return (
     <header>
@@ -81,7 +81,7 @@ export function Header() {
             <p className="font-extrabold md:text-sm">Account & List</p>
           </div>
 
-          <div className=" link">
+          <div className=" link" onClick={()=> session && router.push('/orders')}>
             <p>Return</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>

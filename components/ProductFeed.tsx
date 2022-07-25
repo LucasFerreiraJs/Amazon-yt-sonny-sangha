@@ -15,7 +15,7 @@ export function ProductFeed() {
 
   const productList:Array<productType> = useSelector(selectProductInitialItems)[0]
 
-  console.log('productList?????', productList[0])
+
   return (
     <div
       className="
